@@ -1,0 +1,90 @@
+#ip 信息
+CREATE TABLE sar_ip_info (
+  id bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  ip varchar(50) DEFAULT NULL COMMENT 'IP地址',
+  connection varchar(2) DEFAULT NULL COMMENT '状态: 1-密码, 2-公钥',
+  status varchar(2) DEFAULT NULL COMMENT '状态: 1-有效, 0-无效',
+  insertedtime timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  insertedby varchar(20) DEFAULT NULL COMMENT '创建人',
+  updatedtime timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  updatedby varchar(20) DEFAULT NULL COMMENT '更新人',
+  comment varchar(500) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (id),
+  UNIQUE KEY ip_status_conn (ip,connection,status)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='IP信息'
+
+insert into sar_ip_info(ip, connection, status, insertedtime, insertedby, updatedtime, updatedby)
+values ('10.60.81.54', '1', '1', NOW(),'admin' ,NOW(),'admin'),
+       ('10.60.81.50', '1', '1', NOW(),'admin' ,NOW(),'admin'),
+       ('10.60.81.51', '1', '1', NOW(),'admin' ,NOW(),'admin'),
+       ('10.60.81.52', '1', '1', NOW(),'admin' ,NOW(),'admin')
+;
+
+#ip账户信息
+CREATE TABLE sar_ip_account (
+  id bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  ip_id varchar(50) DEFAULT NULL COMMENT 'IP信息ID',
+  username varchar(50) DEFAULT NULL COMMENT '用户名',
+  password varchar(100) DEFAULT NULL  COMMENT '密码',
+  status varchar(2) DEFAULT NULL  COMMENT '状态: 1-有效, 0-无效',
+  insertedtime timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  insertedby varchar(20) DEFAULT NULL COMMENT '创建人',
+  updatedtime timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  updatedby varchar(20) DEFAULT NULL COMMENT '更新人',
+  comment varchar(500) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (id),
+  #UNIQUE KEY ip_status_conn (ip_id,username,status)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8  COMMENT='IP账户信息'
+;
+
+insert into sar_ip_account(ip_id, username, password, status, insertedtime, insertedby, updatedtime, updatedby)
+values ('1', 'qhntp', 'Gjs@1234', '1', NOW(),'admin' ,NOW(),'admin'),
+       ('2', 'root', 'Gjs@1234', '1', NOW(),'admin' ,NOW(),'admin'),
+       ('3', 'root', 'Gjs@1234', '1', NOW(),'admin' ,NOW(),'admin'),
+       ('4', 'root', 'Gjs@1234', '1', NOW(),'admin' ,NOW(),'admin')
+;
+
+
+#sar 内存信息 (剩余memory=free memory+buffers+cached)
+#drop table sar_memory_info;
+CREATE TABLE sar_memory_info (
+  id bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  ip_id bigint(20) DEFAULT NULL COMMENT 'IP信息表ID',
+  infodate date DEFAULT NULL COMMENT '日期',
+  time time DEFAULT NULL COMMENT '时间',
+  memfree varchar(50) DEFAULT NULL COMMENT '空闲内存',
+  memused varchar(50) DEFAULT NULL COMMENT '使用内存',
+  memused_percent decimal(16,4) DEFAULT NULL COMMENT '使用内存百分比(不含swap)',
+  buffers varchar(50) DEFAULT NULL COMMENT '缓存',
+  cached varchar(50) DEFAULT NULL COMMENT '缓存',
+  commit varchar(50) DEFAULT NULL COMMENT '保证当前系统所需要的内存(RAM+swap)',
+  commit_percent decimal(16,4) DEFAULT NULL COMMENT 'commit与内存总量(包括swap)百分比',
+  insertedtime timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  insertedby varchar(20) DEFAULT NULL COMMENT '创建人',
+  updatedtime timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  updatedby varchar(20) DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='内存使用状况'
+;
+
+
+#sar 内存平均值信息 (剩余memory=free memory+buffers+cached)
+#drop table sar_memory_average;
+CREATE TABLE sar_memory_average (
+  id bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  ip_id bigint(20) DEFAULT NULL COMMENT 'IP信息表ID',
+  infodate date DEFAULT NULL COMMENT '日期',
+  memfree varchar(50) DEFAULT NULL COMMENT '空闲内存',
+  memused varchar(50) DEFAULT NULL COMMENT '使用内存',
+  memused_percent decimal(16,4) DEFAULT NULL COMMENT '使用内存百分比(不含swap)',
+  buffers varchar(50) DEFAULT NULL COMMENT '缓存',
+  cached varchar(50) DEFAULT NULL COMMENT '缓存',
+  commit varchar(50) DEFAULT NULL COMMENT '保证当前系统所需要的内存(RAM+swap)',
+  commit_percent decimal(16,4) DEFAULT NULL COMMENT 'commit与内存总量(包括swap)百分比',
+  insertedtime timestamp NULL DEFAULT NULL COMMENT '创建时间',
+  insertedby varchar(20) DEFAULT NULL COMMENT '创建人',
+  updatedtime timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  updatedby varchar(20) DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='内存使用状况'
+;

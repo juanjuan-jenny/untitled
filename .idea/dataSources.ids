@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - gjs_db@10.60.81.54学习测试服务器" uuid="08a54a5b-ab4d-4c78-a0ba-edfb6bd453a7">
+    <database-info product="MySQL" version="5.6.33" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="gjs_db"/>
+    <table name="sar_ip_account" schema="" catalog="gjs_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="SUQ=" autoIncrement="true"/>
+      <column name="ip_id" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="SVDkv6Hmga9JRA=="/>
+      <column name="username" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="55So5oi35ZCN"/>
+      <column name="password" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="5a+G56CB"/>
+      <column name="status" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" remarks="54q25oCBOiAxLeacieaViCwgMC3ml6DmlYg="/>
+      <column name="insertedtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5Yib5bu65pe26Ze0"/>
+      <column name="insertedby" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5Yib5bu65Lq6"/>
+      <column name="updatedtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5pu05paw5pe26Ze0"/>
+      <column name="updatedby" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5pu05paw5Lq6"/>
+      <column name="comment" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12" remarks="5aSH5rOo"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sar_ip_info" schema="" catalog="gjs_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="SUQ=" autoIncrement="true"/>
+      <column name="ip" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="SVDlnLDlnYA="/>
+      <column name="connection" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" remarks="54q25oCBOiAxLeWvhueggSwgMi3lhazpkqU="/>
+      <column name="status" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" remarks="54q25oCBOiAxLeacieaViCwgMC3ml6DmlYg="/>
+      <column name="insertedtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5Yib5bu65pe26Ze0"/>
+      <column name="insertedby" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5Yib5bu65Lq6"/>
+      <column name="updatedtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5pu05paw5pe26Ze0"/>
+      <column name="updatedby" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5pu05paw5Lq6"/>
+      <column name="comment" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12" remarks="5aSH5rOo"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ip_status_conn" unique="true" columns="ip,connection,status"/>
+    </table>
+    <table name="sar_memory_average" schema="" catalog="gjs_db" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="SUQ=" autoIncrement="true"/>
+      <column name="ip_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="SVDkv6Hmga/ooahJRA=="/>
+      <column name="infodate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="5pel5pyf"/>
+      <column name="memfree" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="56m66Zey5YaF5a2Y"/>
+      <column name="memused" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="5L2/55So5YaF5a2Y"/>
+      <column name="memused_percent" sqlType="DECIMAL" precision="16" scale="4" nullable="true" jdbcType="3" remarks="5L2/55So5YaF5a2Y55m+5YiG5q+UKOS4jeWQq3N3YXAp"/>
+      <column name="buffers" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="57yT5a2Y"/>
+      <column name="cached" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="57yT5a2Y"/>
+      <column name="commit" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="5L+d6K+B5b2T5YmN57O757uf5omA6ZyA6KaB55qE5YaF5a2YKFJBTStzd2FwKQ=="/>
+      <column name="commit_percent" sqlType="DECIMAL" precision="16" scale="4" nullable="true" jdbcType="3" remarks="Y29tbWl05LiO5YaF5a2Y5oC76YePKOWMheaLrHN3YXAp55m+5YiG5q+U"/>
+      <column name="insertedtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5Yib5bu65pe26Ze0"/>
+      <column name="insertedby" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5Yib5bu65Lq6"/>
+      <column name="updatedtime" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5pu05paw5pe26Ze0"/>
+      <column name="updatedby" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5pu05paw5Lq6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="user" schema="" catalog="gjs_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user" sqlType="CHAR" precision="255" scale="0" nullable="true" jdbcType="1"/>
+      <column name="name" sqlType="CHAR" precision="255" scale="0" nullable="true" jdbcType="1"/>
+      <column name="password" sqlType="CHAR" precision="255" scale="0" nullable="true" jdbcType="1"/>
+      <column name="ta" sqlType="CHAR" precision="255" scale="0" nullable="true" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>
